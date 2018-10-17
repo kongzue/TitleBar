@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         linkGithub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://github.com/kongzue/");
+                Uri uri = Uri.parse("https://github.com/kongzue/TitleBar/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

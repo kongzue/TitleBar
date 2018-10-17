@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.kongzue.titlebar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        app:gravity="left"
+        app:noBackButton="true"
+        app:statusBarTransparent="true"
+        app:title="TitleBarDemo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="点击以下按钮查看不同样式："
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/btn_no_transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="默认不沉浸式"/>
+
+            <Button
+                android:id="@+id/btn_ios_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="iOS样式带文字的返回按钮"/>
+
+            <Button
+                android:id="@+id/btn_right_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="右侧按钮"/>
+
+            <Button
+                android:id="@+id/btn_with_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="带副标题"/>
+
+            <Button
+                android:id="@+id/btn_all_transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="完全透明"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="本页代码："
+                android:textSize="12dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#64000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="&lt;com.kongzue.titlebar.TitleBar\n    android:id=&quot;@+id/titleBar&quot;\n    android:layout_width=&quot;match_parent&quot;\n    android:layout_height=&quot;55dp&quot;\n    android:background=&quot;#3F51B5&quot;\n    app:gravity=&quot;left&quot;\n    app:noBackButton=&quot;true&quot;\n    app:statusBarTransparent=&quot;true&quot;\n    app:title=&quot;TitleBarDemo&quot; /&gt;"
+                    android:textColor="#fff"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:typeface="monospace" />
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Kongzue TitleBar 遵循开源协议 Apache License 2.0"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="可前往 Github 页面查看具体使用方法："
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/link_github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="立即查看 >"
+                android:textColor="#4472c4"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

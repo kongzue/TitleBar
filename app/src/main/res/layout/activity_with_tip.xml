@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.kongzue.titlebar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        app:gravity="left"
+        app:tip="我是主标题"
+        app:statusBarTransparent="true"
+        app:title="带副标题"
+        app:titleSize="18dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="本页代码："
+                android:textSize="12dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#64000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="&lt;com.kongzue.titlebar.TitleBar\n    android:id=&quot;@+id/titleBar&quot;\n    android:layout_width=&quot;match_parent&quot;\n    android:layout_height=&quot;55dp&quot;\n    android:background=&quot;#3F51B5&quot;\n    app:gravity=&quot;left&quot;\n    app:tip=&quot;我是主标题&quot;\n    app:statusBarTransparent=&quot;true&quot;\n    app:title=&quot;带副标题&quot;\n    app:titleSize=&quot;18dp&quot;/&gt;"
+                    android:textColor="#fff"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:typeface="monospace" />
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

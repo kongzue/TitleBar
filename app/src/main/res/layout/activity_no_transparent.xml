@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.kongzue.titlebar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        app:gravity="left"
+        app:title="默认不沉浸式" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="本页代码："
+                android:textSize="12dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#64000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="&lt;com.kongzue.titlebar.TitleBar\n    android:id=&quot;@+id/titleBar&quot;\n    android:layout_width=&quot;match_parent&quot;\n    android:layout_height=&quot;55dp&quot;\n    android:background=&quot;#3F51B5&quot;\n    app:title=&quot;默认不沉浸式&quot; /&gt;"
+                    android:textColor="#fff"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:typeface="monospace" />
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

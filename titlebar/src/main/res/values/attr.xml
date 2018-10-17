@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="titleBar">
+        <attr name="android:layout_height" />
+
+        <attr name="mainColor" format="color" />
+        <attr name="titleColor" format="color" />
+        <attr name="titleBold" format="boolean" />
+        <attr name="tipColor" format="color" />
+        <attr name="title" format="string" />
+        <attr name="tip" format="string" />
+        <attr name="leftButtonImage" format="reference" />
+        <attr name="rightButtonImage" format="reference" />
+        <attr name="statusBarTransparent" format="boolean" />
+        <attr name="splitLineColor" format="color" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="tipSize" format="dimension" />
+        <attr name="backText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="noBackButton" format="boolean" />
+        <attr name="backgroundAlpha" format="float" />
+
+        <attr name="gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+
+    </declare-styleable>
+</resources>

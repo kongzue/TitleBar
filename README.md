@@ -78,6 +78,7 @@ app:rightText  | 右侧按钮文字，默认不设置即不显示  | String
 app:noBackButton  | 不显示返回按钮  | boolean
 app:backgroundAlpha  | 背景透明度  | float(范围0f~1f)
 app:gravity  | 文字排版样式  | 可选left;center;right
+app:buttonTextSize | 按钮文字字号 | int(像素)
 
 也可通过set方法设置：
 ```
@@ -88,6 +89,7 @@ titleBar.setTitleSize(dp2px(12));                                           //�
 titleBar.setNoBackButton(true);                                             //不显示返回按钮
 titleBar.setGravity(TitleBar.GravityValue.LEFT.ordinal());                  //设置排版方式
 titleBar.setBackgroundAlpha(0.5f);                                          //设置背景透明度50%
+titleBar.setButtonTextSize(dp2px(12));                                      //设置按钮文字字号
 //...
 ```
 
@@ -119,6 +121,10 @@ limitations under the License.
 ```
 
 ## 更新日志
+v1.1:
+- 修复 title 不可以为空文本的 bug；
+- 新增属性 buttonTextSize 控制左右按钮文本字号；
+
 v1.0:
 - 全新发布；
 

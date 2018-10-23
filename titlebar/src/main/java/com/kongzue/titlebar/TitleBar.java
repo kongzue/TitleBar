@@ -57,6 +57,7 @@ public class TitleBar extends LinearLayout {
     private int splitLineColor = -1;
     private int titleSize = -1;
     private int tipSize = -1;
+    private int buttonTextSize = -1;
     private int gravity = 0;
     private String backText;
     private String rightText;
@@ -109,6 +110,7 @@ public class TitleBar extends LinearLayout {
             splitLineColor = typedArray.getColor(R.styleable.titleBar_splitLineColor, splitLineColor);
             titleSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_titleSize, titleSize);
             tipSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_tipSize, tipSize);
+            buttonTextSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_buttonTextSize, buttonTextSize);
             gravity = typedArray.getInt(R.styleable.titleBar_gravity, GravityValue.LEFT.ordinal());
             backText = typedArray.getNonResourceString(R.styleable.titleBar_backText);
             rightText = typedArray.getNonResourceString(R.styleable.titleBar_rightText);
@@ -237,7 +239,7 @@ public class TitleBar extends LinearLayout {
                 txtTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             }
             
-            if (!isNull(title)) {
+            if (title != null) {
                 txtTitle.setText(title);
             }
             
@@ -257,6 +259,8 @@ public class TitleBar extends LinearLayout {
             
             txtTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
             txtTip.setTextSize(TypedValue.COMPLEX_UNIT_PX, tipSize);
+            txtBack.setTextSize(TypedValue.COMPLEX_UNIT_PX, buttonTextSize);
+            txtMore.setTextSize(TypedValue.COMPLEX_UNIT_PX, buttonTextSize);
             
             if (gravity == GravityValue.LEFT.ordinal()) {
                 txtTitle.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
@@ -392,6 +396,7 @@ public class TitleBar extends LinearLayout {
         splitLineColor = -1;
         titleSize = dp2px(22);
         tipSize = dp2px(12);
+        buttonTextSize = dp2px(18);
         
         //初始化
         if (context != null) {
@@ -611,6 +616,16 @@ public class TitleBar extends LinearLayout {
     
     public TitleBar setTipSize(int tipSize) {
         this.tipSize = tipSize;
+        refreshView();
+        return this;
+    }
+    
+    public int getButtonTextSize() {
+        return buttonTextSize;
+    }
+    
+    public TitleBar setButtonTextSize(int buttonTextSize) {
+        this.buttonTextSize = buttonTextSize;
         refreshView();
         return this;
     }

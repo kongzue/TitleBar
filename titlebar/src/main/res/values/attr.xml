@@ -15,6 +15,7 @@
         <attr name="splitLineColor" format="color" />
         <attr name="titleSize" format="dimension" />
         <attr name="tipSize" format="dimension" />
+        <attr name="buttonTextSize" format="dimension" />
         <attr name="backText" format="string" />
         <attr name="rightText" format="string" />
         <attr name="noBackButton" format="boolean" />

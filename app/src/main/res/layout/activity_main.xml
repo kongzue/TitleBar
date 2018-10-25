@@ -25,8 +25,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="50dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,31 +39,31 @@
                 android:id="@+id/btn_no_transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="默认不沉浸式"/>
+                android:text="默认不沉浸式" />
 
             <Button
                 android:id="@+id/btn_ios_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="iOS样式带文字的返回按钮"/>
+                android:text="iOS样式带文字的返回按钮" />
 
             <Button
                 android:id="@+id/btn_right_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="右侧按钮"/>
+                android:text="右侧按钮" />
 
             <Button
                 android:id="@+id/btn_with_tip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="带副标题"/>
+                android:text="带副标题" />
 
             <Button
                 android:id="@+id/btn_all_transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="完全透明"/>
+                android:text="完全透明" />
 
             <TextView
                 android:layout_width="wrap_content"

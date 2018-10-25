@@ -3,10 +3,10 @@ Kongzue TitleBar 是一款导航栏组件，它可以帮您快速配置界面顶
 同时 TitleBar 还支持沉浸式适配，只需要一个开关，即可完全搞定沉浸式！
 
 <a href="https://github.com/kongzue/TitleBar/">
-<img src="https://img.shields.io/badge/TitleBar-1.1-green.svg" alt="Kongzue TitleBar">
+<img src="https://img.shields.io/badge/TitleBar-1.2-green.svg" alt="Kongzue TitleBar">
 </a>
-<a href="https://bintray.com/myzchh/maven/TitleBar/1.1/link">
-<img src="https://img.shields.io/badge/Maven-1.1-blue.svg" alt="Maven">
+<a href="https://bintray.com/myzchh/maven/TitleBar/1.2/link">
+<img src="https://img.shields.io/badge/Maven-1.2-blue.svg" alt="Maven">
 </a>
 <a href="http://www.apache.org/licenses/LICENSE-2.0">
 <img src="https://img.shields.io/badge/License-Apache%202.0-red.svg" alt="License">
@@ -34,14 +34,14 @@ Maven仓库：
 <dependency>
   <groupId>com.kongzue.titlebar</groupId>
   <artifactId>titlebar</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <type>pom</type>
 </dependency>
 ```
 Gradle：
 在dependencies{}中添加引用：
 ```
-implementation 'com.kongzue.titlebar:titlebar:1.1'
+implementation 'com.kongzue.titlebar:titlebar:1.2'
 ```
 
 2) 从XML布局文件创建：
@@ -121,6 +121,9 @@ limitations under the License.
 ```
 
 ## 更新日志
+v1.2：
+- 修复当开启 noBackButton 时 title 不居中的问题；
+
 v1.1:
 - 修复 title 不可以为空文本的 bug；
 - 新增属性 buttonTextSize 控制左右按钮文本字号；

@@ -130,8 +130,10 @@ public class TitleBar extends LinearLayout {
         if (isAlreadyInit) {
             if (noBackButton) {
                 btnBack.setVisibility(GONE);
+                txtTitle.setPadding(dp2px(30),0,0,0);
                 boxBody.setPadding(dp2px(15), 0, 0, 0);
             } else {
+                txtTitle.setPadding(0,0,0,0);
                 boxBody.setPadding(0, 0, 0, 0);
                 if (leftButtonImage != -1) {
                     btnBack.setVisibility(VISIBLE);

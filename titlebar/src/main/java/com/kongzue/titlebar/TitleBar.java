@@ -218,7 +218,9 @@ public class TitleBar extends LinearLayout {
                         
                         if (statusBar) {
                             try {
-                                StatusBarUtil.setTranslucentStatus((Activity) context, true, true);
+                                if (!statusBarTransparentOnlyPadding) {
+                                    StatusBarUtil.setTranslucentStatus((Activity) context, true, true);
+                                }
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -495,7 +497,7 @@ public class TitleBar extends LinearLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (context != null) {
-            if (statusBar) {
+            if (statusBar || statusBarTransparentOnlyPadding) {
                 int newHeight = height + StatusBarUtil.getStatusBarHeight(context);
                 setMeasuredDimension(getMeasuredWidth(), newHeight);//设置宽高
             }

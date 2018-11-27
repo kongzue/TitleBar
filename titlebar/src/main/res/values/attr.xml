@@ -12,6 +12,7 @@
         <attr name="leftButtonImage" format="reference" />
         <attr name="rightButtonImage" format="reference" />
         <attr name="statusBarTransparent" format="boolean" />
+        <attr name="statusBarTransparentOnlyPadding" format="boolean" />
         <attr name="splitLineColor" format="color" />
         <attr name="titleSize" format="dimension" />
         <attr name="tipSize" format="dimension" />

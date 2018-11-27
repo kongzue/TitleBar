@@ -3,10 +3,10 @@ Kongzue TitleBar 是一款导航栏组件，它可以帮您快速配置界面顶
 同时 TitleBar 还支持沉浸式适配，只需要一个开关，即可完全搞定沉浸式！
 
 <a href="https://github.com/kongzue/TitleBar/">
-<img src="https://img.shields.io/badge/TitleBar-1.2-green.svg" alt="Kongzue TitleBar">
+<img src="https://img.shields.io/badge/TitleBar-1.2.2-green.svg" alt="Kongzue TitleBar">
 </a>
-<a href="https://bintray.com/myzchh/maven/TitleBar/1.2/link">
-<img src="https://img.shields.io/badge/Maven-1.2-blue.svg" alt="Maven">
+<a href="https://bintray.com/myzchh/maven/TitleBar/1.2.2/link">
+<img src="https://img.shields.io/badge/Maven-1.2.2-blue.svg" alt="Maven">
 </a>
 <a href="http://www.apache.org/licenses/LICENSE-2.0">
 <img src="https://img.shields.io/badge/License-Apache%202.0-red.svg" alt="License">
@@ -34,14 +34,14 @@ Maven仓库：
 <dependency>
   <groupId>com.kongzue.titlebar</groupId>
   <artifactId>titlebar</artifactId>
-  <version>1.2</version>
+  <version>1.2.2</version>
   <type>pom</type>
 </dependency>
 ```
 Gradle：
 在dependencies{}中添加引用：
 ```
-implementation 'com.kongzue.titlebar:titlebar:1.2'
+implementation 'com.kongzue.titlebar:titlebar:1.2.2'
 ```
 
 2) 从XML布局文件创建：
@@ -72,6 +72,7 @@ app:tipSize  | 副标题文字大小  | int(像素)
 app:leftButtonImage  | 返回按钮（左侧按钮）图标  | DrawableResId
 app:rightButtonImage  | 右侧按钮图标，默认不设置即不显示  | DrawableResId
 app:statusBarTransparent  | 是否沉浸式当前Activity  | boolean
+app:statusBarTransparentOnlyPadding | 只使用上方 Padding 位移以隔开状态栏区域的方法  | boolean
 app:splitLineColor  | TitleBar底部分割线颜色，默认不设置即不显示  | ColorInt
 app:backText  | 返回按钮文字，默认不设置即不显示  | String
 app:rightText  | 右侧按钮文字，默认不设置即不显示  | String
@@ -121,6 +122,11 @@ limitations under the License.
 ```
 
 ## 更新日志
+v1.2.2:
+- 修复 bug；
+- OnRightButtonPressed 和 OnBackPressed 新增回传参数 view，方便需要使用 PopupMenu 的场景；
+- 新增属性 statusBarTransparentOnlyPadding 只设置状态栏高度上方偏移，不执行沉浸式代码，方便有其他沉浸式适配代码的应用。
+
 v1.2：
 - 修复当开启 noBackButton 时 title 不居中的问题；
 

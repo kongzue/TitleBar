@@ -30,7 +30,7 @@ import java.util.Set;
  */
 public class StatusBarUtil {
     
-    public static void setTranslucentStatus(Activity context,boolean on,boolean darkStatusBarThemeValue) {
+    public static void setTranslucentStatus(Activity context, boolean on, boolean darkStatusBarThemeValue) {
         if (isMIUI()) setStatusBarDarkModeInMIUI(darkStatusBarThemeValue, context);
         if (isFlyme()) setStatusBarDarkIconInFlyme(context.getWindow(), darkStatusBarThemeValue);
         Window window = context.getWindow();

@@ -1,5 +1,7 @@
 package com.kongzue.titlebar.interfaces;
 
+import android.view.View;
+
 /**
  * Author: @Kongzue
  * Github: https://github.com/kongzue/
@@ -8,5 +10,5 @@ package com.kongzue.titlebar.interfaces;
  * CreateTime: 2018/10/16 12:03
  */
 public interface OnBackPressed {
-    void onBackPressed();
+    void onBackPressed(View v);
 }

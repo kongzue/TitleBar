@@ -39,6 +39,7 @@ import java.util.TimerTask;
  * Mail: myzcxhh@live.cn
  * CreateTime: 2018/10/3 21:55
  */
+
 public class TitleBar extends LinearLayout {
     
     private OnBackPressed onBackPressed;
@@ -54,6 +55,7 @@ public class TitleBar extends LinearLayout {
     private int leftButtonImage = -1;
     private int rightButtonImage = -1;
     private boolean statusBar;
+    private boolean statusBarTransparentOnlyPadding;
     private int splitLineColor = -1;
     private int titleSize = -1;
     private int tipSize = -1;
@@ -107,6 +109,7 @@ public class TitleBar extends LinearLayout {
             leftButtonImage = typedArray.getResourceId(R.styleable.titleBar_leftButtonImage, leftButtonImage);
             rightButtonImage = typedArray.getResourceId(R.styleable.titleBar_rightButtonImage, rightButtonImage);
             statusBar = typedArray.getBoolean(R.styleable.titleBar_statusBarTransparent, statusBar);
+            statusBarTransparentOnlyPadding = typedArray.getBoolean(R.styleable.titleBar_statusBarTransparentOnlyPadding, statusBarTransparentOnlyPadding);
             splitLineColor = typedArray.getColor(R.styleable.titleBar_splitLineColor, splitLineColor);
             titleSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_titleSize, titleSize);
             tipSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_tipSize, tipSize);
@@ -129,11 +132,14 @@ public class TitleBar extends LinearLayout {
     private void refreshView() {
         if (isAlreadyInit) {
             if (noBackButton) {
-                btnBack.setVisibility(GONE);
-                txtTitle.setPadding(dp2px(30),0,0,0);
-                boxBody.setPadding(dp2px(15), 0, 0, 0);
+                if (gravity == GravityValue.LEFT.ordinal()) {
+                    btnBack.setVisibility(GONE);
+                    boxBody.setPadding(dp2px(15), 0, 0, 0);
+                } else {
+                    btnBack.setVisibility(INVISIBLE);
+                }
             } else {
-                txtTitle.setPadding(0,0,0,0);
+                txtTitle.setPadding(0, 0, 0, 0);
                 boxBody.setPadding(0, 0, 0, 0);
                 if (leftButtonImage != -1) {
                     btnBack.setVisibility(VISIBLE);
@@ -164,10 +170,12 @@ public class TitleBar extends LinearLayout {
                     int r = (color & 0xff0000) >> 16;
                     int g = (color & 0x00ff00) >> 8;
                     int b = (color & 0x0000ff);
-                    if (isDeepColor(r, g, b)) {
-                        StatusBarUtil.setTranslucentStatus((Activity) context, true, false);
-                    } else {
-                        StatusBarUtil.setTranslucentStatus((Activity) context, true, true);
+                    if (!statusBarTransparentOnlyPadding) {
+                        if (isDeepColor(r, g, b)) {
+                            StatusBarUtil.setTranslucentStatus((Activity) context, true, false);
+                        } else {
+                            StatusBarUtil.setTranslucentStatus((Activity) context, true, true);
+                        }
                     }
                 }
             } else {
@@ -191,7 +199,9 @@ public class TitleBar extends LinearLayout {
                         
                         if (statusBar) {
                             try {
-                                StatusBarUtil.setTranslucentStatus((Activity) context, true, false);
+                                if (!statusBarTransparentOnlyPadding) {
+                                    StatusBarUtil.setTranslucentStatus((Activity) context, true, false);
+                                }
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -216,7 +226,7 @@ public class TitleBar extends LinearLayout {
                     }
                 }
             }
-            if (statusBar) {
+            if (statusBar || statusBarTransparentOnlyPadding) {
                 int statusBarHeight = StatusBarUtil.getStatusBarHeight(context);
                 int newHeight = height + statusBarHeight;
                 
@@ -311,7 +321,7 @@ public class TitleBar extends LinearLayout {
                 public void onClick(View v) {
                     if (btnBack.getVisibility() != VISIBLE) return;
                     if (onBackPressed != null) {
-                        onBackPressed.onBackPressed();
+                        onBackPressed.onBackPressed(btnBack);
                     } else {
                         try {
                             ((Activity) context).onBackPressed();
@@ -335,7 +345,7 @@ public class TitleBar extends LinearLayout {
                 public void onClick(View v) {
                     if (btnMore.getVisibility() != VISIBLE) return;
                     if (onRightButtonPressed != null) {
-                        onRightButtonPressed.onRightButtonPressed();
+                        onRightButtonPressed.onRightButtonPressed(btnMore);
                     }
                 }
             });

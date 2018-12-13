@@ -45,6 +45,7 @@ public class TitleBar extends LinearLayout {
     private OnBackPressed onBackPressed;
     private OnRightButtonPressed onRightButtonPressed;
     private OnTitleBarDoubleClick onTitleBarDoubleClick;
+    private OnClickListener onClickListener;
     
     private int height = 144;
     private int mainColor = -1;
@@ -104,8 +105,8 @@ public class TitleBar extends LinearLayout {
             mainColor = typedArray.getColor(R.styleable.titleBar_mainColor, mainColor);
             titleColor = typedArray.getColor(R.styleable.titleBar_titleColor, titleColor);
             tipColor = typedArray.getColor(R.styleable.titleBar_tipColor, tipColor);
-            title = typedArray.getNonResourceString(R.styleable.titleBar_title);
-            tip = typedArray.getNonResourceString(R.styleable.titleBar_tip);
+            title = typedArray.getString(R.styleable.titleBar_title);
+            tip = typedArray.getString(R.styleable.titleBar_tip);
             leftButtonImage = typedArray.getResourceId(R.styleable.titleBar_leftButtonImage, leftButtonImage);
             rightButtonImage = typedArray.getResourceId(R.styleable.titleBar_rightButtonImage, rightButtonImage);
             statusBar = typedArray.getBoolean(R.styleable.titleBar_statusBarTransparent, statusBar);
@@ -115,14 +116,14 @@ public class TitleBar extends LinearLayout {
             tipSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_tipSize, tipSize);
             buttonTextSize = typedArray.getDimensionPixelOffset(R.styleable.titleBar_buttonTextSize, buttonTextSize);
             gravity = typedArray.getInt(R.styleable.titleBar_gravity, GravityValue.LEFT.ordinal());
-            backText = typedArray.getNonResourceString(R.styleable.titleBar_backText);
-            rightText = typedArray.getNonResourceString(R.styleable.titleBar_rightText);
+            backText = typedArray.getString(R.styleable.titleBar_backText);
+            rightText = typedArray.getString(R.styleable.titleBar_rightText);
             noBackButton = typedArray.getBoolean(R.styleable.titleBar_noBackButton, noBackButton);
             titleBold = typedArray.getBoolean(R.styleable.titleBar_titleBold, titleBold);
             backgroundAlpha = typedArray.getFloat(R.styleable.titleBar_backgroundAlpha, backgroundAlpha);
-            
             typedArray.recycle();
         } catch (Exception e) {
+            e.printStackTrace();
         }
         
         refreshView();
@@ -358,6 +359,7 @@ public class TitleBar extends LinearLayout {
                 }
             });
         }
+    
         
         if (onTitleBarDoubleClick != null) {
             boxBody.setOnClickListener(new OnClickListener() {
@@ -372,11 +374,14 @@ public class TitleBar extends LinearLayout {
                             @Override
                             public void run() {
                                 isDoubleClick = false;
+                                if (onClickListener != null) boxBody.setOnClickListener(onClickListener);
                             }
-                        }, 1000);
+                        }, 500);
                     }
                 }
             });
+        }else{
+            if (onClickListener != null) boxBody.setOnClickListener(onClickListener);
         }
     }
     
@@ -696,5 +701,11 @@ public class TitleBar extends LinearLayout {
         this.backgroundAlpha = backgroundAlpha;
         boxBkg.setAlpha(backgroundAlpha);
         return this;
+    }
+    
+    @Override
+    public void setOnClickListener(@Nullable OnClickListener l) {
+        this.onClickListener = l;
+        setEvents();
     }
 }

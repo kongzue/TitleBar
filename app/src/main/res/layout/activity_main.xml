@@ -14,9 +14,8 @@
         android:background="#3F51B5"
         app:gravity="left"
         app:noBackButton="true"
-        app:statusBarTransparentOnlyPadding="true"
         app:statusBarTransparent="true"
-        app:title="TitleBarDemo" />
+        app:title="@string/app_name" />
 
     <ScrollView
         android:layout_width="match_parent"

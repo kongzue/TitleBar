@@ -19,7 +19,7 @@ Demo预览图如下：
 
 ![Tabbar](https://github.com/kongzue/Res/raw/master/app/src/main/res/mipmap-xxxhdpi/titlebar_demo.png)
 
-Demo下载地址：https://fir.im/titlebar
+Demo下载地址：http://beta.kongzue.com/titlebar
 
 ### 优势
 - 轻松易配置，主体功能都可在XML中直接完成设置。

@@ -6,16 +6,16 @@ def siteUrl = 'https://github.com/kongzue/TitleBar' //项目在github主页地�
 def gitUrl = 'https://github.com/kongzue/TitleBar.git'   //Git仓库的地址
 
 group = "com.kongzue.titlebar"//发布aar前缀根节点
-version = "1.2.4"//发布aar的库版本
+version = "1.2.5"//发布aar的库版本
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 9
-        versionName "1.2.4"
+        targetSdkVersion 30
+        versionCode 10
+        versionName "1.2.5"
     }
 
     buildTypes {
@@ -87,5 +87,5 @@ bintray {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0+'
 }

@@ -21,12 +21,16 @@ Demo预览图如下：
 
 Demo下载地址：https://fir.im/titlebar
 
-### 优势
+## 优势
 - 轻松易配置，主体功能都可在XML中直接完成设置。
 
 - 易于上手，快速创建，满足绝大多数标题栏使用场景。
 
-### 使用方法
+## 引入
+
+请注意，Support 版本的 Titlebar 最后维护至版本 1.2.4，AndroidX 版本请更新换用 1.2.5 版。
+
+### Support Version
 
 1) 从 Maven 仓库或 jCenter 引入：
 Maven仓库：
@@ -43,6 +47,28 @@ Gradle：
 ```
 implementation 'com.kongzue.titlebar:titlebar:1.2.4'
 ```
+
+### AndroidX Version
+
+1) 在 project 的 build.gradle 文件中找到 `allprojects{}` 代码块添加以下代码：
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }      //增加 jitPack Maven 仓库
+    }
+}
+```
+
+2) 在 app 的 build.gradle 文件中找到 `dependencies{}` 代码块，并在其中加入以下语句：
+
+```
+implementation 'com.github.kongzue.titlebar:titlebar:1.2.5'
+```
+
+## 使用方法
 
 2) 从XML布局文件创建：
 ```

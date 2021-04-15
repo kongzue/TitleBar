@@ -3,8 +3,10 @@ package com.kongzue.titlebar.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -108,20 +110,6 @@ public class StatusBarUtil {
     private static final String KEY_MIUI_VERSION_CODE = "ro.miui.ui.version.code";
     private static final String KEY_MIUI_VERSION_NAME = "ro.miui.ui.version.name";
     private static final String KEY_MIUI_INTERNAL_STORAGE = "ro.miui.internal.storage";
-    
-    //获取状态栏的高度
-    public static int getStatusBarHeight(Context context) {
-        try {
-            Class<?> c = Class.forName("com.android.internal.R$dimen");
-            Object obj = c.newInstance();
-            Field field = c.getField("status_bar_height");
-            int x = Integer.parseInt(field.get(obj).toString());
-            return context.getResources().getDimensionPixelSize(x);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
     
     //MIUI判断
     public static boolean isMIUI() {

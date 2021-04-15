@@ -9,20 +9,24 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.kongzue.titlebar.interfaces.OnBackPressed;
 import com.kongzue.titlebar.interfaces.OnRightButtonPressed;
@@ -229,18 +233,18 @@ public class TitleBar extends LinearLayout {
                     }
                 }
             }
-            if (statusBar || statusBarTransparentOnlyPadding) {
-                int statusBarHeight = StatusBarUtil.getStatusBarHeight(context);
-                int newHeight = height + statusBarHeight;
-                
-                boxBody.setY(statusBarHeight);
-                
-                LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, newHeight);
-                rootView.setLayoutParams(params);
-                
-                RelativeLayout.LayoutParams bodyParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height);
-                boxBody.setLayoutParams(bodyParams);
-            }
+//            if (statusBar || statusBarTransparentOnlyPadding) {
+//                int statusBarHeight=0;
+//                int newHeight = height + statusBarHeight;
+//
+//                boxBody.setY(statusBarHeight);
+//
+//                LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, newHeight);
+//                rootView.setLayoutParams(params);
+//
+//                RelativeLayout.LayoutParams bodyParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height);
+//                boxBody.setLayoutParams(bodyParams);
+//            }
             
             if (tipColor != -1) {
                 txtTip.setTextColor(tipColor);
@@ -359,7 +363,7 @@ public class TitleBar extends LinearLayout {
                 }
             });
         }
-    
+        
         
         if (onTitleBarDoubleClick != null) {
             boxBody.setOnClickListener(new OnClickListener() {
@@ -374,13 +378,14 @@ public class TitleBar extends LinearLayout {
                             @Override
                             public void run() {
                                 isDoubleClick = false;
-                                if (onClickListener != null) boxBody.setOnClickListener(onClickListener);
+                                if (onClickListener != null)
+                                    boxBody.setOnClickListener(onClickListener);
                             }
                         }, 500);
                     }
                 }
             });
-        }else{
+        } else {
             if (onClickListener != null) boxBody.setOnClickListener(onClickListener);
         }
     }
@@ -398,6 +403,7 @@ public class TitleBar extends LinearLayout {
     private ImageView btnMore;
     
     private boolean isAlreadyInit = false;
+    private int statusBarHeight;
     
     //初始化
     private void init() {
@@ -438,6 +444,28 @@ public class TitleBar extends LinearLayout {
             rootView.setLayoutParams(params);
             
             isAlreadyInit = true;
+            
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+                ((Activity) context).getWindow().getDecorView().setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {
+                    @Override
+                    public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+                        if (statusBar || statusBarTransparentOnlyPadding) {
+                            statusBarHeight = insets.getSystemWindowInsetTop();
+                            int newHeight = height + statusBarHeight;
+                            
+                            boxBody.setY(statusBarHeight);
+                            
+                            LayoutParams params = (LayoutParams) rootView.getLayoutParams();
+                            params.height = newHeight;
+                            rootView.setLayoutParams(params);
+                            
+                            RelativeLayout.LayoutParams bodyParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height);
+                            boxBody.setLayoutParams(bodyParams);
+                        }
+                        return insets;
+                    }
+                });
+            }
         }
     }
     
@@ -503,7 +531,7 @@ public class TitleBar extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (context != null) {
             if (statusBar || statusBarTransparentOnlyPadding) {
-                int newHeight = height + StatusBarUtil.getStatusBarHeight(context);
+                int newHeight = height + statusBarHeight;
                 setMeasuredDimension(getMeasuredWidth(), newHeight);//设置宽高
             }
         }

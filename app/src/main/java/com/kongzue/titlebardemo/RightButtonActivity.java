@@ -1,6 +1,6 @@
 package com.kongzue.titlebardemo;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -20,17 +20,17 @@ public class RightButtonActivity extends AppCompatActivity {
         
         titleBar = findViewById(R.id.titleBar);
     
+        titleBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RightButtonActivity.this,"点击了titleBar",Toast.LENGTH_SHORT).show();
+            }
+        });
+    
         titleBar.setOnRightButtonPressed(new OnRightButtonPressed() {
             @Override
             public void onRightButtonPressed(View v) {
                 Toast.makeText(RightButtonActivity.this,"点击了右侧按钮",Toast.LENGTH_SHORT).show();
-            }
-        });
-    
-        titleBar.setOnBackPressed(new OnBackPressed() {
-            @Override
-            public void onBackPressed(View v) {
-        
             }
         });
     }

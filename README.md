@@ -68,7 +68,7 @@ allprojects {
 2) 在 app 的 build.gradle 文件中找到 `dependencies{}` 代码块，并在其中加入以下语句：
 
 ```
-implementation 'com.github.kongzue.titlebar:titlebar:1.2.5'
+implementation 'com.github.kongzue:TitleBar:1.2.5'
 ```
 
 ## 使用方法

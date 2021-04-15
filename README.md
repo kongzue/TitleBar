@@ -6,10 +6,10 @@ Kongzue TitleBar 是一款导航栏组件，它可以帮您快速配置界面顶
 <img src="https://img.shields.io/badge/TitleBar-1.2.5-green.svg" alt="Kongzue TitleBar">
 </a>
 <a href="https://bintray.com/myzchh/maven/TitleBar/1.2.4/link">
-<img src="https://img.shields.io/badge/Maven-1.2.4-red.svg" alt="Support">
+<img src="https://img.shields.io/badge/Support-1.2.4-red.svg" alt="Support">
 </a>
 <a href="https://bintray.com/myzchh/maven/TitleBar/1.2.5/link">
-<img src="https://img.shields.io/badge/Maven-1.2.5-green.svg" alt="AndroidX">
+<img src="https://img.shields.io/badge/AndroidX-1.2.5-green.svg" alt="AndroidX">
 </a>
 <a href="http://www.apache.org/licenses/LICENSE-2.0">
 <img src="https://img.shields.io/badge/License-Apache%202.0-red.svg" alt="License">
